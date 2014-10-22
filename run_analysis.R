@@ -26,3 +26,10 @@ y_test[,2] = activity_labels[y_test[,1]]
 names(y_test) = c("Activity_ID", "Activity_Label")
 names(subject_test) = "subject"
 
+train_data <- cbind(as.data.table(subject_train), y_train, X_train)
+data = rbind(test_data, train_data)
+id_labels   = c("subject", "Activity_ID", "Activity_Label")
+data_labels = setdiff(colnames(data), id_labels)
+melt_data      = melt(data, id = id_labels, measure.vars = data_labels)
+tidy_data   = dcast(melt_data, subject + Activity_Label ~ variable, mean)
+write.table(tidy_data, file = "getdata-projectfiles-UCI HAR Dataset/tidy_data.txt")
