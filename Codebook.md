@@ -16,7 +16,7 @@ This contains data collected from the accelerometers from the Samsung Galaxy S s
 * 'test/y_test.txt': Test labels.
 * 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-**Steps**
+**Variables and their transformations**
 The code in run_analysis.R is clearly demarked into five sections, as stated below:
 * Read the data files. The variable names have the same names as the files that the data originate from.
 * Extract only the measurements on the mean and standard deviation for each measurement, because that is the data we are focussing on.
