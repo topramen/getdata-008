@@ -10,9 +10,9 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 This contains data collected from the accelerometers from the Samsung Galaxy S smartphone. The data is contained in the following files:
 
-*features_info.txt': Shows information about the variables used on the feature vector.
+* 'features_info.txt': Shows information about the variables used on the feature vector.
 * 'features.txt': List of all features.
-*  'activity_labels.txt': Links the class labels with their activity name.
+* 'activity_labels.txt': Links the class labels with their activity name.
 * 'train/X_train.txt': Training set.
 * 'train/y_train.txt': Training labels.
 * 'test/X_test.txt': Test set.
@@ -22,6 +22,7 @@ This contains data collected from the accelerometers from the Samsung Galaxy S s
 **Variables and their transformations**
 
 The code in run_analysis.R is clearly demarked into five sections, as stated below:
+
 * Read the data files. The variable names have the same names as the files that the data originate from.
 * Extract only the measurements on the mean and standard deviation for each measurement, because that is the data we are focussing on.
 * Load activity labels, Uses descriptive activity names to name the activities in the data set, and appropriately labels the data set with descriptive variable names. 
