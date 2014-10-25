@@ -3,7 +3,7 @@ library(plyr)
 
 
 #Read the files 
-tivity_labels <- read.table("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt")[,2]
+activity_labels <- read.table("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt")[,2]
 features <- read.table("getdata-projectfiles-UCI HAR Dataset//UCI HAR Dataset/features.txt")[,2]
 X_test <- read.table("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt")
 y_test <- read.table("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt")
