@@ -1,5 +1,5 @@
 library(data.table)
-library(plyr)
+library(reshape2)
 
 
 #Read the files 
@@ -17,13 +17,23 @@ y_train <- read.table("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/trai
 names(X_test) = features
 mean_sd_features <- grepl("mean|std", features)
 X_test = X_test[,mean_sd_features]
+names(X_train) = features
+X_train = X_train[,mean_sd_features]
 
-# Load activity labels
+
+# Load activity labels and Bind Data
 # Uses descriptive activity names to name the activities in the data set
 # Appropriately labels the data set with descriptive variable names. 
 y_test[,2] = activity_labels[y_test[,1]]
 names(y_test) = c("Activity_ID", "Activity_Label")
 names(subject_test) = "subject"
+test_data <- cbind(as.data.table(subject_test), y_test, X_test)
+names(y_test) = c("Activity_ID", "Activity_Label")
+names(subject_test) = "subject"
+y_train[,2] = activity_labels[y_train[,1]]
+names(y_train) = c("Activity_ID", "Activity_Label")
+names(subject_train) = "subject"
+
 
 # Merge the training and the test sets to create one data set.
 train_data <- cbind(as.data.table(subject_train), y_train, X_train)
