@@ -1,12 +1,12 @@
 if (!require("data.table")) {
   install.packages("data.table")
+  library(data.table)
 }
-library(data.table)
 
 if (!require("reshape2")) {
   install.packages("reshape2")
+  library(reshape2)
 }
-library(reshape2)
 
 
 #Read the files 
