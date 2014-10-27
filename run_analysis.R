@@ -1,4 +1,11 @@
+if (!require("data.table")) {
+  install.packages("data.table")
+}
 library(data.table)
+
+if (!require("reshape2")) {
+  install.packages("reshape2")
+}
 library(reshape2)
 
 
@@ -28,15 +35,13 @@ y_test[,2] = activity_labels[y_test[,1]]
 names(y_test) = c("Activity_ID", "Activity_Label")
 names(subject_test) = "subject"
 test_data <- cbind(as.data.table(subject_test), y_test, X_test)
-names(y_test) = c("Activity_ID", "Activity_Label")
-names(subject_test) = "subject"
 y_train[,2] = activity_labels[y_train[,1]]
 names(y_train) = c("Activity_ID", "Activity_Label")
 names(subject_train) = "subject"
+train_data <- cbind(as.data.table(subject_train), y_train, X_train)
 
 
 # Merge the training and the test sets to create one data set.
-train_data <- cbind(as.data.table(subject_train), y_train, X_train)
 data = rbind(test_data, train_data)
 id_labels   = c("subject", "Activity_ID", "Activity_Label")
 data_labels = setdiff(colnames(data), id_labels)
